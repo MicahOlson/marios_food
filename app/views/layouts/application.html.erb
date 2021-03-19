@@ -10,9 +10,9 @@
 
   <body>
     <div class="container">
-      <ul class="nav nav-pills">
-        <li><%= link_to "Home", root_path, role:"presentation", class: "active"%></li>
-        <li><%= link_to "Products", products_path, role:"presentation"%></li>
+      <ul class="nav nav-tabs">
+        <li><%= link_to "Home", root_path, role: 'presentation' %></li>
+        <li><%= link_to "Products", products_path, role: 'presentation' %></li>
       </ul>
 
       <%= flash[:alert] %>
