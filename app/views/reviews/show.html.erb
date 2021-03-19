@@ -1,0 +1,15 @@
+<% snippet_size = 30 %>
+<% review_snippet = "#{@review.content_body[0, snippet_size]} #{'...' if @review.content_body.size > snippet_size}" %>
+<% rating_suffix = @review.rating > 1 ? "Stars" : "Star" %>
+<% display_string =  "#{review_snippet} - #{@review.rating} #{rating_suffix}" %>
+
+<h1>Review: <%= display_string %></h1>
+<h2>Product: <%= @product.name %></h2>
+<h3><%= @review.content_body %></h3>
+
+<p><%= link_to "Edit review", edit_product_review_path(@product, @review) %></p>
+<p><%= link_to "Delete review", product_review_path(@product, @review),
+                        :data => {:confirm => "Are you sure?",
+                                       :method => "delete"} %></p>
+
+<p><%= link_to "Return to product", product_path(@product) %></p>
