@@ -8,8 +8,8 @@
     <ul>
       <li>
         <% snippet_size = 30 %>
-        <% review_snippet = "#{review.content_body[0, snippet_size]} #{'...' if review.content_body.size > snippet_size}" %>
-        <% rating_suffix = review.rating > 1 ? "Stars" : "Star" %>
+        <% review_snippet = "#{review.content_body[0, snippet_size]}#{'...' if review.content_body.size > snippet_size}" %>
+        <% rating_suffix = review.rating == 1 ? "Star" : "Stars" %>
         <% display_string =  "#{review_snippet} - #{review.rating} #{rating_suffix}" %>
         <%= link_to display_string, product_review_path(@product, review) %>
       </li>
