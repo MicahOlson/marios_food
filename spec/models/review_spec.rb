@@ -1,5 +1,11 @@
 require 'rails_helper'
 
-describe Review do
-  it { should belong_to(:product) }
+RSpec.describe Review, type: :model do
+  describe 'associations' do
+    it { should belong_to(:product) }
+  end
+
+  describe 'validations' do
+    it { should validate_presence_of(:author) }
+  end
 end
