@@ -5,4 +5,5 @@ class Product < ApplicationRecord
   validates :name, length: { maximum: 60 }
   validates :cost, presence: true
   validates :cost, numericality: { greater_than_or_equal_to: 0 }
+  validates :country_of_origin, presence: true
 end
