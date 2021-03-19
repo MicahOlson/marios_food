@@ -1,16 +1,25 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <title>Mario's Food</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <title>Mario's Food</title>
   </head>
 
   <body>
-    <%= flash[:alert] %>
-    <%= flash[:notice] %>
-    <%= yield %>
+    <div class="container">
+      <ul class="nav nav-pills">
+        <li><%= link_to "Home", root_path, role:"presentation", class: "active"%></li>
+        <li><%= link_to "Products", products_path, role:"presentation"%></li>
+      </ul>
+
+      <%= flash[:alert] %>
+      <%= flash[:notice] %>
+
+      <%= yield %>
+
+    </div>
   </body>
 </html>
