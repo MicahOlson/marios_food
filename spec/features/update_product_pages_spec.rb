@@ -12,4 +12,14 @@ RSpec.describe "the update a product process", type: :feature do
     expect(page).to have_content 'Product successfully updated!'
     expect(page).to have_content 'Green Pepper'
   end
+  
+  it "gives an error when no name is entered" do
+    test_product = Product.create(name: 'achacha', cost: '8.33', country_of_origin: 'congo')
+    visit edit_product_path(test_product)
+    fill_in 'Name', with: ''
+    fill_in 'Cost', with: ''
+    fill_in 'Country of origin', with: ''
+    click_on 'Update Product'
+    expect(page).to have_content "Name can't be blank"
+  end
 end
