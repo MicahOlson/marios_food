@@ -1,13 +1,13 @@
 <h1>Products</h1>
+<p><%= link_to "Add a product", new_product_path %></p>
 
 <% if @products.any? %>
+<% products = @products.sort_by { |k| k[:name] } %>
   <ul>
-    <% @products.each do |product| %>
+    <% products.each do |product| %>
       <li><%= link_to product.name, product_path(product) %></li>
     <% end %>
   </ul>
 <% else %>
-  <p>There are no products yet.</p>
+  <p>Looks like we're completely out of stock! Check back on Tuesday when we'll have our next inventory refresh.</p>
 <% end %>
-
-<p><%= link_to "Create new product", new_product_path %></p>
