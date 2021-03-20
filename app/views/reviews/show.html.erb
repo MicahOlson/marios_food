@@ -1,9 +1,7 @@
-<% snippet_size = 30 %>
-<% review_snippet = "#{@review.content_body[0, snippet_size]}#{'...' if @review.content_body.size > snippet_size}" %>
+<% rating_suffix = @review.rating == 1 ? "Star" : "Stars" %>
 
-<h1>Review: <%= review_snippet %></h1>
-<h2>Product: <%= @product.name %></h2>
-<h3><%= @review.content_body %></h3>
+<h1><%= @product.name %> - <%= @review.rating %> <%= rating_suffix %></h1>
+<blockquote><%= @review.content_body %><small><%= @review.author %></small></blockquote>
 
 <p><%= link_to "Edit review", edit_product_review_path(@product, @review) %></p>
 <p><%= link_to "Delete review", product_review_path(@product, @review),
