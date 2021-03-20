@@ -1,29 +1,22 @@
-<h1><%= @product.name %></h1>
-<h3><%= @product.cost %></h3>
-<h3><%= @product.country_of_origin %></h3>
+<h1>
+  <%= @product.name %> <small>(<%= link_to "edit", edit_product_path(@product) %>/<%= link_to "delete", product_path(@product), data: {confirm: "Are you sure?", method: "delete"} %>)</small>
+</h1>
+<h3><small>Product of <%= @product.country_of_origin %></small></h3>
+<h3>Price: $<%= @product.cost %></h3>
 
+<h3>Reviews <small><%= link_to "(add a review)", new_product_review_path(@product) %></small></h3>
 <% if @product.reviews.any? %>
-  <h4>Here are the reviews for this product:</h4>
   <% @product.reviews.each do |review| %>
     <ul>
       <li>
-        <% snippet_size = 30 %>
+        <% snippet_size = 40 %>
         <% review_snippet = "#{review.content_body[0, snippet_size]}#{'...' if review.content_body.size > snippet_size}" %>
         <% rating_suffix = review.rating == 1 ? "Star" : "Stars" %>
-        <% display_string =  "#{review_snippet} - #{review.rating} #{rating_suffix}" %>
+        <% display_string =  "#{review.rating} #{rating_suffix} - #{review.author} says \"#{review_snippet}\"" %>
         <%= link_to display_string, product_review_path(@product, review) %>
       </li>
     </ul>
   <% end %>
 <% else %>
-  <p>No reviews are listed for this product.</p>
+  <p>This product has no reviews, yet.</p>
 <% end %>
-
-<p><%= link_to "Add a review", new_product_review_path(@product) %></p>
-
-<p><%= link_to "Edit", edit_product_path(@product) %></p>
-<p><%= link_to "Delete", product_path(@product),
-                         :data => {:confirm => "Are you sure?",
-                                   :method => "delete"} %></p>
-
-<p><%= link_to "Return to products", products_path %></p>
