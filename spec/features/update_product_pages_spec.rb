@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe "the update a product process" do
+RSpec.describe "the update a product process", type: :feature do
   it "updates a product" do
     test_product = Product.create(name: 'corn on the cob', cost: '1.99', country_of_origin: 'argentina')
     visit product_path(test_product)

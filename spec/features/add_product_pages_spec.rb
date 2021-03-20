@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe "the add a product process" do
+RSpec.describe "the add a product process", type: :feature do
   it "adds a new product" do
     visit products_path
     click_link 'Add a product'
