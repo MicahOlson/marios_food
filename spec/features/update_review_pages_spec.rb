@@ -13,4 +13,15 @@ RSpec.describe "the update a review process", type: :feature do
     expect(page).to have_content 'Review successfully updated!'
     expect(page).to have_content 'Abe Normal'
   end
+  
+  it "gives an error when no author is entered" do
+    test_product = Product.create(name: 'jelly', cost: '2.99', country_of_origin: 'belguim')
+    test_review = Review.create(author: 'Claire Voyance', content_body: 'Qui voluptas dolor. Et voluptatem et. Quos eos et. Placeat earum beatae.', rating: 4, product_id: test_product.id)
+    visit edit_product_review_path(test_product, test_review)
+    fill_in 'Author', with: ''
+    fill_in 'Content body', with: ''
+    fill_in 'Rating', with: 2
+    click_on 'Update Review'
+    expect(page).to have_content "Author can't be blank"
+  end
 end
