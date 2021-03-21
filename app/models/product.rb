@@ -7,6 +7,14 @@ class Product < ApplicationRecord
   validates :country_of_origin, presence: true
   validates :country_of_origin, length: { maximum: 60 }
 
+  scope :most_reviews, -> {(
+    select("products.id, products.name, count(reviews.id) as reviews_count")
+    .joins(:reviews)
+    .group("products.id")
+    .order("reviews_count DESC")
+    .limit(10)
+    )}
+
   before_save(:titleize)
 
   private
