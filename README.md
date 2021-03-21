@@ -1,42 +1,63 @@
 # Mario's Specialty Food Products 
-## _Welcome to Mario's - Your Source for the Best Quality Food Products!_
+## _Your Source for the Best Quality Food Products!_
 ### by: Micah L. Olson
 ### created: 3/17/2021
-### updated: 3/17/2021
 
 --- 
 
 ## Description
-This app displays and interacts with a database of available food products and user reviews. Users (admins for now) can add, update and delete new products. They can click an individual product to see its detail page. And they can add a review to a product.
+As a **minimum viable product** (MVP) demonstrating knowledge of **Rails with Active Record**, this web application was created to manage products and reviews for a fictional company called *Mario's Speciality Food Products*. The application displays and interacts with a database of available food products and user reviews. Users (admins for now) can add, update and delete new products. They can click an individual product to see its detail page, including its reviews. And they can add, update and delete a review for a product.
 
 ---
 
 ## Technologies
-* Ruby 2.6.5
-* Rails 5.2.4
-* Embedded Ruby (ERB)
-* PostgreSQL (psql) 12.6
-* pg 1.2.3
-* Puma 3.12.6
-* Bundler 1.17.2
-* Test-Driven Development (TDD)
-* Faker
-* RSpec 3.10
-* shoulda-matchers 4.5.1
-* Capybara 3.35.3
-* Pry 0.14.0
-* HTML
-* SASS
-* Bootstrap-SASS 3.4.1
-* git 2.30.1
+<table border="0">
+ <tr>
+    <td width=300px>
+      <ul>
+        <li>Ruby 2.6.5</li>
+        <li>Rails 5.2.4</li>
+        <li>rake 13.0.3</li>
+        <li>Embedded Ruby (ERB)</li>
+        <li>PostgreSQL (psql) 12.6</li>
+        <li>pg 1.2.3</li>
+        <li>Puma 3.12.6</li>
+        <li>Bundler 1.17.2</li>
+        <li>Test-Driven Development (TDD)</li>
+      </ul>
+    </td>
+    <td width=300px>
+      <ul>
+        <li>Faker</li>
+        <li>RSpec 3.10</li>
+        <li>shoulda-matchers 4.5.1</li>
+        <li>Capybara 3.35.3</li>
+        <li>Pry 0.14.0</li>
+        <li>HTML</li>
+        <li>SASS</li>
+        <li>Bootstrap-SASS 3.4.1</li>
+        <li>git 2.30.1</li>
+      </ul>
+    </td>
+ </tr>
+</table>
 
 ---
 
 ## Requirements
-* You will need to use your system's **terminal emulator** to setup and locally use this application.
-* `PostgreSQL 12.6` is **required** to run this app and manage its database ([how to install PostgreSQL 12.6](https://www.learnhowtoprogram.com/ruby-and-rails/getting-started-with-ruby/installing-postgres)).
-* You **must** have `Ruby 2.6.5` installed to be able to launch this application ([how to install Ruby 2.6.5](https://www.learnhowtoprogram.com/ruby-and-rails/getting-started-with-ruby/installing-ruby)).
-* `Bundler` is also **required**. *After you install `Ruby`*, it can be installed with the following command.
+* You will need to use your system's **`terminal` emulator** to set up and locally use this application.
+
+* **`PostgreSQL 12.6`** is required to manage this application's database.  
+  <small>
+    ([how to install PostgreSQL 12.6](https://www.learnhowtoprogram.com/ruby-and-rails/getting-started-with-ruby/installing-postgres))
+  </small>
+
+* You must have **`Ruby 2.6.5`** installed to be able to run this application.  
+  <small>
+    ([how to install Ruby 2.6.5](https://www.learnhowtoprogram.com/ruby-and-rails/getting-started-with-ruby/installing-ruby))
+  </small>
+
+* **`Bundler`** is needed to install all application dependencies. Install it *after* you install `Ruby`.
   ```bash
   $ gem install bundler
   ```
@@ -44,71 +65,69 @@ This app displays and interacts with a database of available food products and u
 ---
 
 ## Installation and Setup
-* **Clone this repository** to a local directory using the command-line tool `git` ([how to install git](https://www.learnhowtoprogram.com/introduction-to-programming/getting-started-with-intro-to-programming/git-and-github)).  
+* **Clone this repository** to a local directory using the command-line tools `cd` and `git`.  
+  <small>
+    ([how to install git](https://www.learnhowtoprogram.com/introduction-to-programming/getting-started-with-intro-to-programming/git-and-github))
+  </small>
   ```bash
-  $ cd ~/<any>/<local>/<directory>/
+  $ cd ~/<local_directory>/
   $ git clone https://github.com/MicahOlson/marios_food.git
   ```
 
-* **Navigate into the project** using `cd` to move to the top level of the project directory.  
+* **Navigate to the top level directory** of the cloned repository.  
   ```bash
   $ cd marios_food/
   ``` 
 
-* **Install all application dependencies** using `Bundler`. This will install all packages (also known as *Gems*) listed in the project's `Gemfile`.
+* **Install all application dependencies** using `Bundler`.
   ```bash
   $ bundle install
   ```
 
-* Note: Windows users may need to follow different instructions for the next points related to `PostgreSQL` and `psql`. For more details, see "how to install PostgreSQL" in Requirements above.
-
-* **Open TWO new tabs or windows** in your terminal emulator to ensure you maintain access to the command line while you run the database system in the next step (and the local web server in the final steps below).  
-  `command-t`, `command-t` on macOS  
-  `control-t`, `control-t` on Windows
-
-* **Start the database system** and keep it running while you interact with this application. `PostgreSQL` will run persistently until shut down and you will not have access to the command line in this same window or tab.
+* **Start the `PostgreSQL` database system** and keep it running while you interact with this application.
   ```bash
   $ postgres
   ```
-  * IMPORTANT! Be sure to **shut the database system down** when you are done using the app. In the window where it's running, simultaneously hold down the following two keys on your keyboard.  
+
+  * Access the command line again by opening another `terminal` tab. Press and briefly hold these key combinations.  
+    `command-t` (macOS) or `control-t` (Windows, GNU/Linux)
+
+  * IMPORTANT! Be sure to **shut the database system down** when you are done using the app.  
     `control-c`
 
-* **Recreate the databases** the app will use to store data (**schema illustrated below**). This app will not run without these.
+* **Recreate the databases** and **seed** a sample dataset.
   ```bash
-  $ createdb volunteer_tracker
-  $ psql volunteer_tracker < database_backup.sql
-  $ createdb -T volunteer_tracker volunteer_tracker_test
+  $ rake db:setup
   ```
+
+* The following **database schema** is automatically created by the above command.
   <div>
     <img src="app/assets/images/db_schema.png" alt="A diagram of the database schema" width="40%">
   </div>
 
-* **Launch the application** in your system's default browser.
+* **Launch the local `Puma` web server** to interact with the application in a browser.
   ```bash
   $ rails server
   ```
-    * Similar to the `postgres ` command above, this will run a local server that needs to be **shut down** when you are done using this app. Use this same key combination to do so.  
+
+  * IMPORTANT! Be sure to **shut the web server down** when you are done using the app.  
     `control-c`
 
-* Navigate to **localhost:3000** into your browser's address bar and click go.
+* Type **localhost:3000** into your browser's address bar and hit `enter`.
 
 ---
 
 ## Testing
-* This project was created using **test-driven development** (TDD).
+* This application was created following a **test-driven development** (TDD) process.
 
-* To **see the *unit* and *integration* test suites**, use `cat` to view the contents of this project's specs files (or open them in a code editor; see below).
+* ***Unit* and *integration* test suites** can be found in `spec/models` and `spec/features` respectively.
+
+* **Read the test specs** using `cat` (like below), or open the files in a code editor (see **Code Editors**).
   ```bash
   $ cat spec/models/product_spec.rb
   ```
-  ```bash
-  $ cat spec/models/review_spec.rb
-  ```
-  ```bash
-  $ cat spec/features/product_integration_spec.rb
-  ```
 
-* To **run the test suites** yourself and verify program functionality use `RSpec`, one of the *Gems* installed by `Bundler` in the instructions above.
+* **Run the tests** yourself using `RSpec` to verify correct program functionality.
   ```bash
   $ rspec
   ```
@@ -116,10 +135,10 @@ This app displays and interacts with a database of available food products and u
 ---
 
 ## Code Editors
-* If you would like to utilize a GUI for opening or editing this project's files, here are some **recommended code editors**:
+* **Recommendations** if you would like to utilize a **GUI** for opening or editing this application's files:
   * [Visual Studio Code](https://code.visualstudio.com) - "Code editing. Redefined."
-  * [Atom](https://atom.io) - "A hackable text editor for the 21st Century"
-  * [SublimeText](https://www.sublimetext.com) - "A sophisticated text editor for code, markup and prose"
+  * [Atom](https://atom.io) - "A hackable text editor for the 21st Century."
+  * [SublimeText](https://www.sublimetext.com) - "A sophisticated text editor for code, markup and prose."
 
 ---
 
@@ -131,10 +150,13 @@ This app displays and interacts with a database of available food products and u
 ---
 
 ## License
-[GPLv3](https://choosealicense.com/licenses/gpl-3.0/)\
+[GPLv3](https://choosealicense.com/licenses/gpl-3.0/)  
 Copyright &copy; 2021 Micah L. Olson
 
 ---
 
 ## Contact Information
-Micah L. Olson at <a href="https://www.linkedin.com/in/micah-lewis-olson/" target="_blank">LinkedIn</a> or by <a href="mailto:micah.olson@protonmail.com" target="_blank">email</a>.
+Micah L. Olson by 
+<a href="mailto:micah.olson@protonmail.com" target="_blank">email</a> 
+or at 
+<a href="https://www.linkedin.com/in/micah-lewis-olson/" target="_blank">LinkedIn</a>.
