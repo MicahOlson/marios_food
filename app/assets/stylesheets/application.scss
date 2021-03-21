@@ -14,3 +14,11 @@
  // See https://github.com/twbs/bootstrap-sass#a-ruby-on-rails
  @import "bootstrap-sprockets";
  @import "bootstrap";
+
+body {
+  padding-top: 70px;
+}
+
+h4 {
+  margin-top: 35px;
+}

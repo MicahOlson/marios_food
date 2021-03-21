@@ -1,6 +1,12 @@
 class ProductsController < ApplicationController
   def index
     @products = Product.order(:name).page params[:page]
+    if params[:search] && params[:search] != ''
+      @search_made = true
+      @products_search = Product.search(params[:search])
+    else
+      @search_made = false
+    end
     render :index
   end
 

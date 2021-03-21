@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   resources :products do
     resources :reviews, except: [:index]
   end
+  get "search", :to => "products#index"
 end

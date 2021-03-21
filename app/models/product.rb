@@ -14,10 +14,9 @@ class Product < ApplicationRecord
     .order("reviews_count DESC")
     .limit(1)
     )}
-  
   scope :most_recent, -> { order(created_at: :desc).limit(3)}
-
   scope :local_usa, -> { where(country_of_origin: "United States of America") }
+  scope :search, -> (name_parameter) { where("LOWER(name) like ?", "%#{name_parameter.downcase}%")}
 
   paginates_per 10
 
