@@ -16,6 +16,17 @@
     <p>Looks like there aren't any reviewed products, yet.</p>
   <% end %>
 
+  <h4>Recently Added Products</h4>
+  <% if @most_recent_products.any? %>
+    <ol>
+    <% @most_recent_products.each do |product| %>
+      <li><%= link_to product.name, product_path(product) %></li>
+    <% end %>
+    </ol>
+  <% else %>
+    <p>Looks like we're completely out of stock! Check back on Tuesday when we'll have our next inventory refresh.</p>
+  <% end %>
+
   <p>
   Pellentesque at sodales nibh. Fusce non suscipit nulla. Suspendisse rhoncus, urna id maximus mattis, eros dolor sodales felis, in sollicitudin eros lorem at lectus. Proin ac dolor non est feugiat vestibulum ac eget leo. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed nec sollicitudin mi, eget pretium lacus. Donec finibus mi et lectus sollicitudin, in aliquet tellus facilisis. Nam a pharetra libero. Sed porta diam in maximus sodales.
   </p>

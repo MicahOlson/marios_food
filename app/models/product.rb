@@ -14,6 +14,8 @@ class Product < ApplicationRecord
     .order("reviews_count DESC")
     .limit(10)
     )}
+  
+  scope :most_recent, -> { order(created_at: :desc).limit(3)}
 
   before_save(:titleize)
 
