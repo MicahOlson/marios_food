@@ -5,26 +5,38 @@
   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque aliquam magna nunc, elementum vestibulum justo tincidunt in. Proin tincidunt, turpis non rhoncus placerat, velit ante euismod justo, eleifend luctus lorem nibh nec lectus. Nulla venenatis turpis id vulputate egestas. Nullam quis nulla sed augue pharetra dictum. Sed efficitur odio et sollicitudin rhoncus. Praesent posuere leo nec leo tempor facilisis. Curabitur id diam eu justo sagittis efficitur at tristique felis.
   </p>
 
-  <h4>Top 10 Most Reviewed Products</h4>
+  <h4>Most Reviewed Product</h4>
   <% if @most_reviewed_products.any? %>
-    <ol>
+    <ul>
     <% @most_reviewed_products.each do |product| %>
       <li><%= link_to product.name, product_path(product) %></li>
     <% end %>
-    </ol>
+    </ul>
   <% else %>
     <p>Looks like there aren't any reviewed products, yet.</p>
   <% end %>
 
-  <h4>Recently Added Products</h4>
+  <h4>Top 3 Recently Added Products</h4>
   <% if @most_recent_products.any? %>
-    <ol>
+    <ul>
     <% @most_recent_products.each do |product| %>
       <li><%= link_to product.name, product_path(product) %></li>
     <% end %>
-    </ol>
+    </ul>
   <% else %>
     <p>Looks like we're completely out of stock! Check back on Tuesday when we'll have our next inventory refresh.</p>
+  <% end %>
+
+  <h4>Shop Locally!</h4>
+  <h5>All Products from the USA</h5>
+  <% if @local_to_usa.any? %>
+    <ul>
+    <% @local_to_usa.each do |product| %>
+      <li><%= link_to product.name, product_path(product) %></li>
+    <% end %>
+    </ul>
+  <% else %>
+    <p>**Looks like we don't have any products from the USA currently. Check back on Tuesday when we'll have our next inventory refresh.**</p>
   <% end %>
 
   <p>
@@ -62,13 +74,4 @@
   <ul>
     <li>Duis congue nulla a eros fringilla accumsan.</li>
   </ul>
-  <p>
-  Nulla justo tortor, mollis vel lorem ac, ornare laoreet magna. Sed faucibus molestie iaculis. Cras pulvinar tristique semper. Ut orci dui, luctus eget egestas in, congue vel elit. Quisque auctor, mauris ac rutrum ornare, dolor ex posuere tellus, a venenatis ipsum ligula eget lorem. Mauris metus sem, molestie at arcu ac, hendrerit tristique sem. Vivamus at ligula aliquam, vestibulum dolor tempor, interdum ipsum. Nunc vel mattis ligula.
-  </p>
-  <p>
-  Maecenas porttitor vestibulum malesuada. Sed convallis mauris tortor. Maecenas imperdiet convallis lectus, ut venenatis elit lacinia eget. Maecenas non semper nisl. Quisque in urna erat. Integer sagittis maximus mauris, quis tempor quam efficitur sed. Aenean quis dolor aliquet neque congue fermentum. Nulla a erat eros. Sed porta nulla leo, in porta eros bibendum in. Fusce convallis orci eget ullamcorper imperdiet. Vestibulum ut mi eget nisl vehicula maximus. Praesent mattis fermentum venenatis. Duis et pretium elit, scelerisque elementum lorem. Proin dictum cursus euismod. Curabitur nec sem tincidunt, ullamcorper nulla sed, sollicitudin sapien. Quisque laoreet nibh eu dui gravida, non malesuada est congue.
-  </p>
-  <p>
-  Proin sit amet tristique massa. Fusce lobortis purus mi. Suspendisse potenti. Ut et nibh non massa venenatis facilisis ut id nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed scelerisque, nibh eget eleifend ultrices, quam dui placerat nunc, a maximus urna turpis nec arcu. Integer congue vehicula turpis, nec gravida leo dapibus ut. Suspendisse elementum metus nec ullamcorper tincidunt. Suspendisse et ex non nisi viverra suscipit a sit amet mi. Ut sagittis tincidunt enim at faucibus. Sed consequat non elit a interdum. Pellentesque ut imperdiet eros. Donec iaculis justo vitae velit iaculis semper.
-  </p>
 </div>
