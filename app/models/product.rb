@@ -19,6 +19,8 @@ class Product < ApplicationRecord
 
   scope :local_usa, -> { where(country_of_origin: "United States of America") }
 
+  paginates_per 10
+
   before_save(:titleize)
 
   private
