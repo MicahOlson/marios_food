@@ -2,11 +2,12 @@
 ## _Your Source for the Best Quality Food Products!_
 ### by: Micah L. Olson
 ### created: 3/17/2021
+### updated: 3/26/2021
 
 --- 
 
 ## Description
-As a **minimum viable product** (MVP) demonstrating knowledge of **Rails with Active Record**, this web application was created to manage products and reviews for a fictional company called *Mario's Speciality Food Products*. The application displays and interacts with a database of available food products and user reviews. Users (admins for now) can add, update and delete new products. They can click an individual product to see its detail page, including its reviews. And they can add, update and delete a review for a product.
+As a **minimum viable product** (MVP) demonstrating knowledge of **Rails with Active Record** and **Authentication and Authorization**, this web application was created to manage products and reviews for a fictional company called *Mario's Speciality Food Products*. The application displays and interacts with a database of available food products and user reviews. There are three levels of access: all site visitors can see the home page, a list of products and product reviews; regular users (visitors who've signed up and signed in) can see the above, as well as add new reviews to products; and administrators can add, update and delete new products, and add, update and delete reviews. A site administrator has been included with the seeded users during setup (see below).
 
 ---
 
@@ -23,6 +24,7 @@ As a **minimum viable product** (MVP) demonstrating knowledge of **Rails with Ac
         <li>pg 1.2.3</li>
         <li>Puma 3.12.6</li>
         <li>Bundler 1.17.2</li>
+        <li>Bcrypt 3.1.16</li>
         <li>Test-Driven Development (TDD)</li>
       </ul>
     </td>
@@ -32,6 +34,7 @@ As a **minimum viable product** (MVP) demonstrating knowledge of **Rails with Ac
         <li>RSpec 3.10</li>
         <li>shoulda-matchers 4.5.1</li>
         <li>Capybara 3.35.3</li>
+        <li>SimpleCov 0.21.2</li>
         <li>Pry 0.14.0</li>
         <li>HTML</li>
         <li>SASS</li>
@@ -115,6 +118,16 @@ As a **minimum viable product** (MVP) demonstrating knowledge of **Rails with Ac
 
 * Type **localhost:3000** into your browser's address bar and hit `enter`.
 
+* To use the application with a pre-made administrator seeded by the `rake db:setup` step above, simply sign as `admin` using the password `Administrator1!`.
+
+* Creating a new administrator can only be done by setting the user `admin` attribute to `true` in the database. Create a new user through the web application, then type the following in `terminal`.
+  ```bash
+  $ rails console
+  > user = User.last
+  > user.admin = true
+  > user.save
+  ```
+
 ---
 
 ## Testing
@@ -144,7 +157,7 @@ As a **minimum viable product** (MVP) demonstrating knowledge of **Rails with Ac
 
 ## Notes, Bugs, Fixes, and Future Improvements
 * No known bugs.
-* Feature enhancements are scheduled for 3/26/21.
+* There are no feature enhancements scheduled for this application.
 * If you find a bug, please report it at the email address below.
 
 ---
