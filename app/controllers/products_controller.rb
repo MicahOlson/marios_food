@@ -1,4 +1,6 @@
 class ProductsController < ApplicationController
+  before_action :authorize_admins, except: [:index, :show]
+
   def index
     @products = Product.order(:name).page params[:page]
     if params[:search] && params[:search] != ''

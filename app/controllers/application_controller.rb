@@ -8,10 +8,24 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def authorize
+  def authorize_all
     if !current_user
       flash[:alert] = "You aren't authorized to visit that page."
-      redirect_to '/'
+      redirect_to root_path
+    end
+  end
+
+  def authorize_users
+    if !current_user
+      flash[:alert] = "You must be signed in to perform that action."
+      redirect_to signin_path
+    end
+  end
+
+  def authorize_admins
+    unless current_user && current_user.admin
+      flash[:alert] = "You must be signed in as administrator to perform that action."
+      redirect_to signin_path 
     end
   end
 end

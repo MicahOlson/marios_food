@@ -34,11 +34,11 @@
             <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
               <ul class="nav navbar-nav navbar-right">
                 <% if current_user %>
-                  <li><a href="/users/edit"><span class="glyphicon glyphicon-user"></span> <%= current_user.username %></a></li>
+                  <li><a href="#"><span class="glyphicon glyphicon-user"></span> <%= current_user.username %></a></li>
                   <li><a href="/signout"> <span class="glyphicon glyphicon-log-out"></span> Sign Out</a></li>
                 <% else %>
                   <li><a href="/signup"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                  <li><a href="/signin"><span class="glyphicon glyphicon-log-in"></span> Log In</a></li>
+                  <li><a href="/signin"><span class="glyphicon glyphicon-log-in"></span> Sign In</a></li>
                 <% end %>
               </ul>
 
