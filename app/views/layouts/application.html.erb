@@ -24,23 +24,36 @@
               <%= link_to "Mario's", root_path, class: "navbar-brand" %>
             </div>
 
-            <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
+            <div class="collapse navbar-collapse navbar-left" id="bs-example-navbar-collapse-1">
               <ul class="nav navbar-nav">
                 <li><%= link_to "Products", products_path %></li>
                 <li><a href="/#about">About Us</a></li>
               </ul>
+            </div>
+
+            <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav navbar-right">
+                <% if current_user %>
+                  <li><a href="/users/edit"><span class="glyphicon glyphicon-user"></span> <%= current_user.username %></a></li>
+                  <li><a href="/signout"> <span class="glyphicon glyphicon-log-out"></span> Sign Out</a></li>
+                <% else %>
+                  <li><a href="/signup"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                  <li><a href="/signin"><span class="glyphicon glyphicon-log-in"></span> Log In</a></li>
+                <% end %>
+              </ul>
+
               <%= form_tag(search_path, 
                            :method => "get", 
-                           :class=>"navbar-form navbar-left") do %>
+                           :class=>"navbar-form navbar-right") do %>
                 <div class="form-group">           
                   <%= text_field_tag :search, 
                                       params[:search], 
                                       placeholder: "Search Products", 
                                       class: "form-control" %>
-
                 </div>
                   <%= submit_tag "Search", class: 'btn btn-default' %>
-                <% end %>
+              <% end %>
+
             </div>
           </div>
         </nav>
