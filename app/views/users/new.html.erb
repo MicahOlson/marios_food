@@ -1,12 +1,22 @@
+<%= render "layouts/errors", object: @user %>
+
 <h1> Sign up</h1>
 <%= form_for @user do |f| %>
-  <%= f.label :username %>
-  <%= f.text_field :username %>
-  <%= f.label :email %>
-  <%= f.text_field :email %>
-  <%= f.label :password %>
-  <%= f.password_field :password %>
-  <%= f.label :password_confirmation %>
-  <%= f.password_field :password_confirmation %>
-  <%= f.submit "Sign Up" %>
+  <div class="form-group">
+    <%= f.label :username %>
+    <%= f.text_field :username, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :email %>
+    <%= f.text_field :email, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :password %>
+    <%= f.password_field :password, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation, class: "form-control" %>
+  </div>
+  <p><%= f.submit "Sign Up",  class: "btn btn-dark" %></p>
 <% end %>
