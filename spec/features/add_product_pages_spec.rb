@@ -2,10 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "the add a product process", type: :feature do
   it "adds a new product" do
-    visit signin_path
-    fill_in 'email', with: 'admin'
-    fill_in 'Password', with: 'Administrator1!'
-    click_button 'Sign in'
+    make_test_admin
     visit products_path
     click_link 'Add a product'
     fill_in 'Name', with: 'corn on the cob'
@@ -17,10 +14,7 @@ RSpec.describe "the add a product process", type: :feature do
   end
 
   it "gives an error when no name is entered" do
-    visit signin_path
-    fill_in 'email', with: 'admin'
-    fill_in 'Password', with: 'Administrator1!'
-    click_button 'Sign in'
+    make_test_admin
     visit new_product_path
     click_button 'Create Product'
     expect(page).to have_content "Name can't be blank"

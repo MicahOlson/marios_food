@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "the update a review process", type: :feature do
   it "updates a product review" do
+    make_test_admin
     test_product = Product.create(name: 'oranges', cost: '1.49', country_of_origin: 'usa')
     test_review = Review.create(author: 'Ann Chovie', content_body: 'Quasi deserunt quis. Non incidunt soluta. Cum placeat ullam. Qui qui adipisci.', rating: 2, product_id: test_product.id)
     visit  product_review_path(test_product, test_review)
@@ -15,6 +16,7 @@ RSpec.describe "the update a review process", type: :feature do
   end
   
   it "gives an error when no author is entered" do
+    make_test_admin
     test_product = Product.create(name: 'jelly', cost: '2.99', country_of_origin: 'belguim')
     test_review = Review.create(author: 'Claire Voyance', content_body: 'Qui voluptas dolor. Et voluptatem et. Quos eos et. Placeat earum beatae.', rating: 4, product_id: test_product.id)
     visit edit_product_review_path(test_product, test_review)

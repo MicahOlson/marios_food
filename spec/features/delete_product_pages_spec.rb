@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "the delete a product process", type: :feature do
   it "deletes a product" do
+    make_test_admin
     test_product = Product.create(name: 'goat cheese', cost: '3.99', country_of_origin: 'greece')
     visit product_path(test_product)
     click_link 'delete'

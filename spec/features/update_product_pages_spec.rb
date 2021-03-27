@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "the update a product process", type: :feature do
   it "updates a product" do
+    make_test_admin
     test_product = Product.create(name: 'corn on the cob', cost: '1.99', country_of_origin: 'argentina')
     visit product_path(test_product)
     click_link 'edit'
@@ -14,6 +15,7 @@ RSpec.describe "the update a product process", type: :feature do
   end
   
   it "gives an error when no name is entered" do
+    make_test_admin
     test_product = Product.create(name: 'achacha', cost: '8.33', country_of_origin: 'congo')
     visit edit_product_path(test_product)
     fill_in 'Name', with: ''
