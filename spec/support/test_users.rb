@@ -1,7 +1,7 @@
 def make_test_user
   test_user = User.create(username: 'Mel Function', email: 'MelFunction@email.com', password: 'Password1!', password_confirmation: 'Password1!')
   visit signin_path
-  fill_in 'email', with: 'Mel Function'
+  fill_in 'email', with: 'MelFunction@email.com'
   fill_in 'Password', with: 'Password1!'
   click_button 'Sign in'
 end

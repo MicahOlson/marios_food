@@ -21,4 +21,10 @@ RSpec.describe 'the add a product review path', type: :feature do
     click_on 'Create Review'
     expect(page).to have_content "Author can't be blank"
   end
+
+  it "gives an error for unauthorized users" do
+    test_product = Product.create(name: 'cous cous', cost: '0.99', country_of_origin: 'colombia')
+    visit new_product_review_path(test_product)
+    expect(page).to have_content "You must be signed in to perform that action."
+  end
 end

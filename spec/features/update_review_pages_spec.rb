@@ -26,4 +26,12 @@ RSpec.describe "the update a review process", type: :feature do
     click_on 'Update Review'
     expect(page).to have_content "Author can't be blank"
   end
+
+  it "gives an error for unauthorized users" do
+    make_test_user
+    test_product = Product.create(name: 'nutmeg', cost: '1.49', country_of_origin: 'turkey')
+    test_review = Review.create(author: 'I. M. Boring', content_body: 'If they ever come up with a swashbuckling school, I think one of the courses should be laughing, then jumping off something.', rating: 4, product_id: test_product.id)
+    visit edit_product_review_path(test_product, test_review)
+    expect(page).to have_content "You must be signed in as administrator to perform that action."
+  end
 end
