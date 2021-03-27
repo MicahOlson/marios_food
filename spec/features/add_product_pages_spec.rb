@@ -19,4 +19,10 @@ RSpec.describe "the add a product process", type: :feature do
     click_button 'Create Product'
     expect(page).to have_content "Name can't be blank"
   end
+
+  it "gives an error for unauthorized users" do
+    make_test_user
+    visit new_product_path
+    expect(page).to have_content "You must be signed in as administrator to perform that action."
+  end
 end

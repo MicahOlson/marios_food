@@ -24,4 +24,11 @@ RSpec.describe "the update a product process", type: :feature do
     click_on 'Update Product'
     expect(page).to have_content "Name can't be blank"
   end
+
+  it "gives an error for unauthorized users" do
+    make_test_user
+    test_product = Product.create(name: 'peaches', cost: '1.29', country_of_origin: 'united states of america')
+    visit edit_product_path(test_product)
+    expect(page).to have_content "You must be signed in as administrator to perform that action."
+  end
 end
