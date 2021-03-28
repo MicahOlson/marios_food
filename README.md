@@ -1,4 +1,7 @@
-# Mario's Specialty Food Products 
+<div>
+  <img src="app/assets/images/marios-logo-color-bg.png" alt="Mario's logo" width="95%">
+</div>
+
 ## _Your Source for the Best Quality Food Products!_
 ### by: Micah L. Olson
 ### created: 3/17/2021
@@ -7,14 +10,19 @@
 --- 
 
 ## Description
-As a **minimum viable product** (MVP) demonstrating knowledge of **Rails with Active Record** and **Authentication and Authorization**, this web application was created to manage products and reviews for a fictional company called *Mario's Speciality Food Products*. The application displays and interacts with a database of available food products and user reviews. There are three levels of access: all site visitors can see the home page, a list of products and product reviews; regular users (visitors who've signed up and signed in) can see the above, as well as add new reviews to products; and administrators can add, update and delete new products, and add, update and delete reviews. A site administrator has been included with the seeded users during setup (see below).
+As a **minimum viable product** (MVP) demonstrating knowledge of **Rails with Active Record** and **Authentication and Authorization**, this web application was created to manage products and reviews for a fictional company called *Mario's Speciality Food Products*. The application displays and interacts with a database of available food products and user reviews.  
+  
+There are three levels of *authorization* in the application:
+* All site **visitors** can see the home page, a list of products, and product reviews.
+* **Users** (visitors who have signed up for an account and signed in) have the access above, as well as the ability to add new reviews to products.
+* And **administrators** can add, update and delete new products, as well as add, update and delete reviews. A site administrator has been included with the seeded users during setup (see below).
 
 ---
 
 ## Technologies
-<table border="0">
+<table style="border:0;border-color:white">
  <tr>
-    <td width=300px>
+    <td width=400px>
       <ul>
         <li>Ruby 2.6.5</li>
         <li>Rails 5.2.4</li>
@@ -28,7 +36,7 @@ As a **minimum viable product** (MVP) demonstrating knowledge of **Rails with Ac
         <li>Test-Driven Development (TDD)</li>
       </ul>
     </td>
-    <td width=300px>
+    <td width=400px>
       <ul>
         <li>Faker</li>
         <li>RSpec 3.10</li>
@@ -105,7 +113,7 @@ As a **minimum viable product** (MVP) demonstrating knowledge of **Rails with Ac
 
 * The following **database schema** is automatically created by the above command.
   <div>
-    <img src="app/assets/images/db_schema.png" alt="A diagram of the database schema" width="40%">
+    <img src="app/assets/images/db_schema.png" alt="A diagram of the database schema" width="60%">
   </div>
 
 * **Launch the local `Puma` web server** to interact with the application in a browser.
@@ -118,15 +126,19 @@ As a **minimum viable product** (MVP) demonstrating knowledge of **Rails with Ac
 
 * Type **localhost:3000** into your browser's address bar and hit `enter`.
 
-* To use the application with a pre-made administrator seeded by the `rake db:setup` step above, simply sign as `admin` using the password `Administrator1!`.
+* To use the application with a pre-made administrator role seeded by the `rake db:setup` step above, simply sign in as `admin` using the password `Administrator1!`.
 
-* Creating a new administrator can only be done by setting the user `admin` attribute to `true` in the database. Create a new user through the web application, then type the following in `terminal`.
-  ```bash
-  $ rails console
-  > user = User.last
-  > user.admin = true
-  > user.save
-  ```
+* Creating a new administrator can only be done by setting the user `admin` attribute to `true` in the database.
+  * First, create a new user through the web application.
+  * Then type the following in `terminal` replacing `<user's password>` in quotes.
+    ```bash
+    $ rails console
+    > user = User.last
+    > user.admin = true
+    > user.password_hash = "<user's password>"
+    > user.save
+    > exit
+    ```
 
 ---
 
