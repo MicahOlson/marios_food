@@ -1,9 +1,15 @@
-<h1>Welcome to Mario's Specialty Food Products</h1>
+<div id="home-logo">
+  <%= image_tag "marios-logo.png", width: "80%", alt: "Mario's Crown Logo" %>
+</div>
+
+<hr>
 
 <div id="lipsum">
   <p>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque aliquam magna nunc, elementum vestibulum justo tincidunt in. Proin tincidunt, turpis non rhoncus placerat, velit ante euismod justo, eleifend luctus lorem nibh nec lectus. Nulla venenatis turpis id vulputate egestas. Nullam quis nulla sed augue pharetra dictum. Sed efficitur odio et sollicitudin rhoncus. Praesent posuere leo nec leo tempor facilisis. Curabitur id diam eu justo sagittis efficitur at tristique felis.
   </p>
+  
+  <%= image_tag "marios-shop.jpeg", width: "80%", alt: "Mario's Shop", id: "marios-shop" %>
 
   <h4>Most Reviewed Product</h4>
   <% if @most_reviewed_products.any? %>

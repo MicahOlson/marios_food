@@ -15,8 +15,29 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
+// * {
+//   border: 1px solid #000000;
+// }
+
 body {
   padding-top: 70px;
+  background-color: #ffda95;
+}
+
+hr {
+  border: 1px solid #000000;
+}
+
+#home-logo {
+  text-align: center;
+}
+
+#marios-shop {
+  width: 640px;
+  object-fit: cover;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  float: right;
 }
 
 h4 {
