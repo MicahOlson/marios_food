@@ -1,6 +1,13 @@
-<% rating_suffix = @review.rating == 1 ? "Star" : "Stars" %>
-
-<h1><%= @product.name %> - <%= @review.rating %> <%= rating_suffix %></h1>
+<h1>Customer review</h1>
+<h3><%= @product.name %></h3>
+<h3>
+  <% @review.rating.to_i.times do  %>
+    <span class="glyphicon glyphicon-star"></span>
+  <% end %>
+  <% (5 - @review.rating.to_i).times do  %>
+    <span class="glyphicon glyphicon-star-empty"></span>
+  <% end %>
+</h3>
 <blockquote><%= @review.content_body %><small><%= @review.author %></small></blockquote>
 
 <p><%= link_to "Edit review", edit_product_review_path(@product, @review) %></p>

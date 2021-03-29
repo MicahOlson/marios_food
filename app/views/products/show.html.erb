@@ -11,9 +11,15 @@
       <li>
         <% snippet_size = 40 %>
         <% review_snippet = "#{review.content_body[0, snippet_size]}#{'...' if review.content_body.size > snippet_size}" %>
-        <% rating_suffix = review.rating == 1 ? "Star" : "Stars" %>
-        <% display_string =  "#{review.rating} #{rating_suffix} - #{review.author} says \"#{review_snippet}\"" %>
-        <%= link_to display_string, product_review_path(@product, review) %>
+        <span class="glyphicon glyphicon-user"></span>
+        <%= "#{review.author}" %><br>
+        <% review.rating.to_i.times do  %>
+          <span class="glyphicon glyphicon-star"></span>
+        <% end %>
+        <% (5 - review.rating.to_i).times do  %>
+          <span class="glyphicon glyphicon-star-empty"></span>
+        <% end %>
+        <%= link_to "\"#{review_snippet}\"", product_review_path(@product, review) %>
       </li>
     </ul>
   <% end %>
