@@ -7,7 +7,7 @@ RSpec.describe "the sign-in a user process", type: :feature do
     fill_in 'email', with: 'Mel Function'
     fill_in 'Password', with: 'Password1!'
     click_button 'Sign in'
-    expect(page).to have_content "You've signed in."
+    expect(page).to have_content "You've successfully signed in."
     expect(page).to have_content 'Mel Function'
   end
 
