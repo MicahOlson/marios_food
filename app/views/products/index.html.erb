@@ -1,5 +1,7 @@
 <h1>Products</h1>
-<p><%= link_to "Add a product", new_product_path %></p>
+<% if current_user && current_user.admin %>  
+  <p><%= link_to "Add a product", new_product_path %></p>
+<% end %>
 
 <% if @search_made %>
   <h3>Search Results</h3>

@@ -1,5 +1,8 @@
 <h1>
-  <%= @product.name %> <small>(<%= link_to "edit", edit_product_path(@product) %>/<%= link_to "delete", product_path(@product), data: {confirm: "Are you sure?", method: "delete"} %>)</small>
+  <%= @product.name %> 
+  <% if current_user && current_user.admin %>
+    <small>(<%= link_to "edit", edit_product_path(@product) %>/<%= link_to "delete", product_path(@product), data: {confirm: "Are you sure?", method: "delete"} %>)</small>
+  <% end %>
 </h1>
 <h3><small>Product of <%= @product.country_of_origin %></small></h3>
 <h3>Price: $<%= @product.cost %></h3>

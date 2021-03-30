@@ -9,10 +9,11 @@
   <% end %>
 </h3>
 <blockquote><%= @review.content_body %><small><%= @review.author %></small></blockquote>
-
-<p><%= link_to "Edit review", edit_product_review_path(@product, @review) %></p>
-<p><%= link_to "Delete review", product_review_path(@product, @review),
-                        :data => {:confirm => "Are you sure?",
-                                       :method => "delete"} %></p>
+<% if current_user && current_user.admin %>
+  <p><%= link_to "Edit review", edit_product_review_path(@product, @review) %></p>
+  <p><%= link_to "Delete review", product_review_path(@product, @review),
+                          :data => {:confirm => "Are you sure?",
+                                        :method => "delete"} %></p>
+<% end %>
 
 <p><%= link_to "Return to product", product_path(@product) %></p>
