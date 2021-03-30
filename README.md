@@ -134,9 +134,7 @@ There are three levels of *authorization* in the application:
     ```bash
     $ rails console
     > user = User.last
-    > user.admin = true
-    > user.password_hash = "<user's password>"
-    > user.save
+    > user.update(admin: true, password_hash: "<user's password>")
     > exit
     ```
 
