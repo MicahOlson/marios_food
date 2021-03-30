@@ -1,11 +1,12 @@
 <h1>
   <%= @product.name %> 
+  <h3>Price: $<%= @product.cost %></h3>
   <% if current_user && current_user.admin %>
     <small>(<%= link_to "edit", edit_product_path(@product) %>/<%= link_to "delete", product_path(@product), data: {confirm: "Are you sure?", method: "delete"} %>)</small>
   <% end %>
 </h1>
+<h3><%= image_tag "https://loremflickr.com/640/480/food" %></h3>
 <h3><small>Product of <%= @product.country_of_origin %></small></h3>
-<h3>Price: $<%= @product.cost %></h3>
 
 <h3>Reviews <small><%= link_to "(add a review)", new_product_review_path(@product) %></small></h3>
 <% if @product.reviews.any? %>
